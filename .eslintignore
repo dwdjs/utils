@@ -1,0 +1,10 @@
+node_modules
+template
+packages/test
+temp
+entry-wc.js
+dist
+scripts
+lib
+coverage
+.eslintrc.js

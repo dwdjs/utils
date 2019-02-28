@@ -1,18 +1,57 @@
 {
   "name": "dwd-utils",
-  "version": "0.0.0",
-  "description": "这是一个用于测试的项目",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "dwd-utils",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@gitlab.iqianggou.com:xmini/utils.git"
+    "benchmark": "npm test && node benchmark",
+    "prebuild": "rm -rf lib",
+    "build": "./node_modules/.bin/babel src -d lib --ignore __test__",
+    "prepublish": "npm run build",
+    "test": "npm run build & jest --no-cache --detectOpenHandles"
   },
   "keywords": [
+    "dwd-utils",
+    "is",
+    "date",
     "utils"
   ],
-  "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "jest": {
+    "verbose": true,
+    "notify": true,
+    "collectCoverage": true,
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/helper-module-imports": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+
+    "babel-jest": "^23.6.0",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-plugin-istanbul": "^5.1.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-jest": "^23.2.0",
+    "conventional-changelog": "3.0.5",
+    "eslint-config-essentials": "^1.1.1",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "jest": "^23.6.0",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.2.0",
+    "@babel/runtime-corejs2": "^7.2.0"
+  }
 }
