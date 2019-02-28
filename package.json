@@ -1,6 +1,6 @@
 {
   "name": "dwd-utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "dwd-utils",
   "main": "lib/index.js",
   "scripts": {
@@ -34,7 +34,6 @@
     "@babel/preset-env": "^7.2.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-
     "babel-jest": "^23.6.0",
     "babel-plugin-add-module-exports": "^1.0.0",
     "babel-plugin-istanbul": "^5.1.0",
