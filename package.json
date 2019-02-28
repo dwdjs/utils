@@ -16,6 +16,7 @@
     "date",
     "utils"
   ],
+  "author": "cloudyan <1395093509@qq.com>",
   "license": "MIT",
   "jest": {
     "verbose": true,
