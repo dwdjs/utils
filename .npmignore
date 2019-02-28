@@ -1,5 +1,18 @@
 src
-__test__
-benchmark
+__tests__/*
+benchmark/*
+coverage/*
+node_modules
 babel.config.js
-coverage
+
+.browserslistrc
+.eslintignore
+.npmignore
+.editorconfig
+.eslintrc.js
+.gitignore
+
+# README.md
+babel.config.js
+# package.json
+yarn.lock
