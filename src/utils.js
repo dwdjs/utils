@@ -7,6 +7,9 @@ export function sleep(timeout) {
   });
 }
 
+export function find (list, f) {
+  return list.filter(f)[0]
+}
 
 // '_~0123456789' +
 // 'abcdefghijklmnopqrstuvwxyz' +
