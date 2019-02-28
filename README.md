@@ -7,3 +7,19 @@
 - find
 - isObject
 - isPromise
+- uuid
+- throttle
+- debounce
+- upperFirst
+- kebabCase
+- camelCase
+- merge
+- version 参见 semver
+  - gt
+  - gte
+  - lt
+  - lte
+  - eq
+  - neq
+- formatDate
+- formatCountDown
