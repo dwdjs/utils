@@ -1,7 +1,7 @@
 // 日期相关格式处理
 
 /**
- * 添加前缀 0
+ * 添加前缀 0，是否使用 padLeft === padStart padEnd === padRight
  *
  * @export
  * @param {number} n 传入数字
@@ -13,7 +13,7 @@ export function formatNum(n) {
   // return n > 10 ? n : ('0' + n)
 }
 
-console.log(formatNum(1));
+// console.log(formatNum(1));
 
 /**
  * formatCountDown(times, 'D天H:F:S')
@@ -38,8 +38,8 @@ export function formatCountDown(times, format = 'H:F:S') {
     switch (a) {
       case 'd':
         return days;
-      case 'D':
-        return formatNum(days);
+      // case 'D':
+      //   return formatNum(days);
       case 'h':
         return hours;
       case 'H':
@@ -66,9 +66,9 @@ export function formatCountDown(times, format = 'H:F:S') {
  * @returns {string} 返回日期
  */
 export function formatDate(date, format = 'Y年M月D日') {
-  if (typeof date === 'number') {
-    date = new Date(date);
-  }
+  if (typeof date !== 'number') return;
+
+  date = new Date(date);
   return format.replace(/Y|y|M|m|D|d|H|h|F|f|S|s/g, a => {
     /* eslint indent: 0 */
     switch (a) {

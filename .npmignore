@@ -4,6 +4,7 @@ benchmark/*
 coverage/*
 node_modules
 babel.config.js
+tempCodeRunnerFile.js
 
 .browserslistrc
 .eslintignore

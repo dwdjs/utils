@@ -7,9 +7,9 @@ export function sleep(timeout) {
   });
 }
 
-export function find (list, f) {
-  return list.filter(f)[0]
-}
+// export function find(list, fn) {
+//   return list.filter(fn)[0]
+// }
 
 // '_~0123456789' +
 // 'abcdefghijklmnopqrstuvwxyz' +
@@ -55,7 +55,7 @@ export function uuid(size = 21) {
   return id;
 }
 
-export function forEachValue (obj, fn) {
+export function forEachValue(obj, fn) {
   Object.keys(obj).forEach(key => fn(obj[key], key))
 }
 
