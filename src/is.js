@@ -12,7 +12,7 @@
  */
 
 const objProto = Object.prototype;
-const owns = objProto.hasOwnProperty;
+// const owns = objProto.hasOwnProperty;
 const toString = objProto.toString;
 
 // 对象自身属性中是否具有指定的属性
@@ -28,7 +28,6 @@ export function isDef(v) {
   return v !== 'undefined' && v !== null;
 }
 
-
 export function isNumber(v) {
   return toString.call(v) === '[object Number]';
 }
@@ -42,7 +41,7 @@ export function isArray(arr) {
 }
 
 export function isObject(v) {
-  return v !== null && typeof v === 'object'// && Array.isArray(v) === false;
+  return v !== null && typeof v === 'object'; // && Array.isArray(v) === false;
 }
 
 export function isFunction(v) {
@@ -65,9 +64,8 @@ export function isEmptyObject(v) {
 }
 
 export function isPromise(v) {
-  return v && typeof v.then === 'function'
+  return v && typeof v.then === 'function';
 }
-
 
 /**
  * looseEqual

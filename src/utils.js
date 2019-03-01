@@ -1,4 +1,3 @@
-
 export function sleep(timeout) {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -56,7 +55,7 @@ export function uuid(size = 21) {
 }
 
 export function forEachValue(obj, fn) {
-  Object.keys(obj).forEach(key => fn(obj[key], key))
+  Object.keys(obj).forEach(key => fn(obj[key], key));
 }
 
 /**
