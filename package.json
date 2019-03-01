@@ -5,7 +5,7 @@
   "description": "dwd-utils",
   "main": "lib/index.js",
   "scripts": {
-    "benchmark": "npm test && node benchmark",
+    "benchmark": "babel-node benchmark/fib/benchmark",
     "prebuild": "rm -rf lib",
     "build": "./node_modules/.bin/babel src -d lib --ignore __test__",
     "prepublish": "npm run build",
@@ -41,6 +41,7 @@
     "babel-plugin-istanbul": "^5.1.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-jest": "^23.2.0",
+    "benchmark": "^2.1.4",
     "conventional-changelog": "3.0.5",
     "eslint-config-essentials": "^1.1.1",
     "eslint-config-prettier": "^3.3.0",
