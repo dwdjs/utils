@@ -1,6 +1,5 @@
 {
   "name": "dwd-utils",
-  "private": true,
   "version": "0.0.4",
   "description": "dwd-utils",
   "main": "lib/index.js",
