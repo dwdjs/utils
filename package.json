@@ -9,7 +9,7 @@
     "build": "./node_modules/.bin/babel src -d lib --ignore __test__",
     "prepublish": "npm run build",
     "lint": "eslint ./src/**/*.js",
-    "test": "jest --no-cache --detectOpenHandles",
+    "test": "eslint ./src/**/*.js & jest --no-cache --detectOpenHandles",
     "ci": "npm run lint && npm run test -- --coverage"
   },
   "pre-commit": [
@@ -33,6 +33,9 @@
   },
   "engines": {
     "node": ">=11.12.0"
+  },
+  "dependencies": {
+
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -60,8 +63,5 @@
     "pre-commit": "^1.2.2",
     "prettier": "^1.16.4",
     "rimraf": "^2.6.3"
-  },
-  "dependencies": {
-
   }
 }
