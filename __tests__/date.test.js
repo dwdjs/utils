@@ -1,4 +1,4 @@
-import { formatNum, formatCountDown, formatDate } from '../src';
+import { formatNum, formatCountDown, formatDate } from '../lib';
 
 test('formatNum', () => {
   expect(formatNum(0)).toBe('00');

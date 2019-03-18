@@ -8,7 +8,7 @@ import {
   camelCase,
   sleep,
   merge,
-} from '../src';
+} from '../lib';
 
 expect.extend({
   toBeWithinRange(received, floor, ceiling) {

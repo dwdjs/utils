@@ -11,7 +11,7 @@ import {
   isFunction,
   isPromise,
   looseEqual,
-} from '../src';
+} from '../lib';
 
 test('isUnDef', () => {
   // .toBeTruthy();
