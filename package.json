@@ -1,6 +1,7 @@
 {
   "name": "@xmini/utils",
   "version": "0.0.5",
+  "private": true,
   "description": "utils for @xmini",
   "main": "lib/index.js",
   "scripts": {
