@@ -50,7 +50,24 @@ This usually means that there are asynchronous operations that weren't stopped i
 3. `npm run test` 报错
 
 ```bash
+# 报错误
 TypeError: Cannot assign to read only property 'Symbol(Symbol.toStringTag)' of object '#<process>'
 ```
 
 这里升级 node 版本 11.11.0后引起，可以退回版本11.10.1或升级到11.12.0
+
+```bash
+# 报错误
+ReferenceError: regeneratorRuntime is not defined
+```
+
+调整 `babel.config.js`，添加
+
+```js
+'@babel/preset-env',
+  {
+  targets: {
+    node: 'current',
+  },
+}
+```
