@@ -47,3 +47,10 @@ This usually means that there are asynchronous operations that weren't stopped i
 
 参考 https://github.com/muwenzi/Program-Blog/issues/12
 
+3. `npm run test` 报错
+
+```bash
+TypeError: Cannot assign to read only property 'Symbol(Symbol.toStringTag)' of object '#<process>'
+```
+
+这里升级 node 版本 11.11.0后引起，可以退回版本11.10.1或升级到11.12.0
