@@ -1,6 +1,6 @@
 import {
   // hasOwn,
-  sleep,
+  // sleep,
   isUnDef,
   isDef,
   isNumber,
@@ -94,7 +94,7 @@ test('isFunction', () => {
   expect(isFunction()).toBe(false);
 });
 
-test('isPromise', async (done) => {
+test('isPromise', async done => {
   // await expect(isPromise(sleep(1000)).toBe(true);
   expect(isPromise(function() {})).toBe(false);
   done();
@@ -103,7 +103,7 @@ test('isPromise', async (done) => {
 test('looseEqual', () => {
   let temp;
   expect(looseEqual([1, 2, 3], [1, 2, 3])).toBe(true);
-  expect(looseEqual({a: 1, b: 2}, {a: 1, b: 2})).toBe(true);
+  expect(looseEqual({ a: 1, b: 2 }, { a: 1, b: 2 })).toBe(true);
   expect(looseEqual(temp, undefined)).toBe(true);
   const date = new Date('2018-12-18 12:42:30');
   expect(looseEqual(date, new Date('2018-12-18 12:42:30'))).toBe(true);

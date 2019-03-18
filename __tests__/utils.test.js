@@ -29,7 +29,6 @@ expect.extend({
   },
 });
 
-
 // const testStr =
 // '_~0123456789' + 'abcdefghijklmnopqrstuvwxyz' + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -38,7 +37,7 @@ test('random', () => {
   const t1 = random(100);
   t1.every(item => {
     expect(item).toBeWithinRange(0, 256);
-  })
+  });
 });
 
 test('uuid', () => {
@@ -56,11 +55,11 @@ test('randomRange', () => {
 });
 
 test('forEachValue', () => {
-  const t1 = {a: 1, b: 2};
+  const t1 = { a: 1, b: 2 };
   const r1 = [];
   forEachValue(t1, (item, key) => {
     r1.push(item + key);
-  })
+  });
   // console.log(r1.join(','));
   expect(r1.join(',')).toBe('1a,2b');
   expect(upperFirst('order-detail')).toBe('Order-detail');
@@ -84,7 +83,7 @@ test('camelCase', () => {
   expect(camelCase('order-detail')).toBe('orderDetail');
 });
 
-it('sleep', async (done) => {
+it('sleep', async done => {
   const sleepTimes = await sleep(100);
   expect(sleepTimes).toBe(100);
   done();

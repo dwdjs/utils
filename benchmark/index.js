@@ -1,15 +1,14 @@
-
 // https://www.npmjs.com/package/benchmark
 // for vs forEach map, reduce, filter
 import Benchmark from 'benchmark';
 
-const suite = new Benchmark.Suite;
+const suite = new Benchmark.Suite();
 
-const arr = [0,1,2,3,4,5,6,7,8,9];
+const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 suite
   .add('for', function() {
-    for(let i=0, len = arr.length - 1; i<len; i++) {
+    for (let i = 0, len = arr.length - 1; i < len; i++) {
       arr[i];
     }
   })
@@ -26,15 +25,14 @@ suite
     arr.filter(e => e);
   })
   .on('complete', function() {
-    console.log('test: for forEach map reduce')
+    console.log('test: for forEach map reduce');
     this.forEach(result => {
-      console.log(result.name, result.count, result.times.elapsed)
-    })
+      console.log(result.name, result.count, result.times.elapsed);
+    });
     console.log('Fastest is ' + this.filter('fastest').map('name'));
   })
   // run async
-  .run({ 'async': true });
-
+  .run({ async: true });
 
 // const arr = [0,1,2,3,4,5,6,7,8,9]
 
