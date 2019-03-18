@@ -1,7 +1,7 @@
 {
-  "name": "dwd-utils",
+  "name": "@xmini/utils",
   "version": "0.0.5",
-  "description": "dwd-utils",
+  "description": "utils for @xmini",
   "main": "lib/index.js",
   "scripts": {
     "benchmark": "babel-node benchmark/fib/benchmark",
@@ -17,7 +17,7 @@
     "test"
   ],
   "keywords": [
-    "dwd-utils",
+    "@xmini",
     "is",
     "date",
     "utils"
