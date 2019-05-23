@@ -1,6 +1,6 @@
 {
   "name": "@dwdjs/utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "utils",
   "miniprogram": "./",
   "main": "./index.js",
@@ -20,10 +20,6 @@
   },
   "author": "dwd",
   "license": "MIT",
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "node scripts/verifyCommitMsg.js"
-  },
   "lint-staged": {
     "*.{js,vue}": [
       "eslint --fix",
