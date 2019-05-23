@@ -1,5 +1,5 @@
 // UA 检测
-import debug from '@/config/debug';
+import { debug } from './debug';
 // https://stackoverflow.com/questions/19877924/what-is-the-list-of-possible-values-for-navigator-platform-as-of-today
 // https://code.i-harness.com/en/q/12f5024
 // navigator.platform 表示浏览器正在执行的平台
@@ -41,7 +41,7 @@ const os = {
   name: '',
   version: '',
 };
-// 宿主 wechat aliapy hybrid browser
+// 宿主 wechat alipay hybrid browser
 const host = {
   name: '',
   version: '',
@@ -284,7 +284,7 @@ if (webview && innerWidth * innerHeight === screen.width * screen.height) {
 
 /**
  * 页面跳转、环境变量描述
- * 默认同环境变量跳转，hybird 只跳转 hybrid 页面，H5只跳转 H5 待定？
+ * 默认同环境变量跳转，hybrid 只跳转 hybrid 页面，H5只跳转 H5 待定？
  * 是否做存在性检测，默认检测
  * isHybrid     app hybrid 页面（包含 isHybridH5）
  * isHybridH5   app 加载远程 H5页面（有 jsBridge 权限）
@@ -348,7 +348,7 @@ if (classNames.length > 0) {
 }
 
 // Trident：（三叉戟）IE11之前使用的内核
-// EdgeHTML
+// EdgeHTML // (EdgeHTML)已放弃，改用Chromium内核
 // Gecko内核：（壁虎）Firefox
 // Webkit内核：（引擎）Safari 曾经的Chrome
 // Presto内核：（说变就变）Opera 13年之后弃用，加入谷歌阵营
@@ -387,7 +387,7 @@ device.getSystemInfo = () => {
     system,
     platform,
     ua,
-    app,
+    appName,
     appVersion,
     os: os.name,
     osVersion: os.version,
@@ -423,6 +423,7 @@ export default device;
 // navigator.userAgent + DWD_IQG/3.2.2.x
 // Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4 DWD_IQG/3.2.2
 // Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4 DWD_HSQ/3.2.2
+// Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 DWD_MSF/1.7.0(iPhone;iOS10.2.1;Scale/3.0)
 
 // Copyright 2018 - ScientiaMobile, Inc., Reston, VA
 // WURFL Device Detection
