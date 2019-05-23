@@ -12,13 +12,13 @@
  */
 
 const objProto = Object.prototype;
-// const owns = objProto.hasOwnProperty;
+const owns = objProto.hasOwnProperty;
 const toString = objProto.toString;
 
 // 对象自身属性中是否具有指定的属性
-// export function hasOwn(obj, prop) {
-//   return owns.call(obj, prop);
-// }
+export function hasOwn(obj, prop) {
+  return owns.call(obj, prop);
+}
 
 export function isUnDef(v) {
   return v === 'undefined' || v === null;
@@ -41,7 +41,7 @@ export function isArray(arr) {
 }
 
 export function isObject(v) {
-  return v !== null && typeof v === 'object'; // && Array.isArray(v) === false;
+  return v !== null && typeof v === 'object' && Array.isArray(v) === false;
 }
 
 export function isFunction(v) {

@@ -1,19 +1,13 @@
+__tests__
+__mocks__
+*.config.js
 src
-__tests__/*
-benchmark/*
-coverage/*
-node_modules
-babel.config.js
-tempCodeRunnerFile.js
-
-.browserslistrc
-.eslintignore
 .npmignore
-.editorconfig
-.eslintrc.js
 .gitignore
+.browserslistrc
 
-# README.md
-babel.config.js
-# package.json
+coverage
+benchmark
+.eslintrc.js
+.*
 yarn.lock

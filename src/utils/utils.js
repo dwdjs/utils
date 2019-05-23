@@ -1,3 +1,10 @@
+/**
+ * sleep
+ *
+ * @export
+ * @param {number} timeout 延迟时间
+ * @returns {function} promise
+ */
 export function sleep(timeout) {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -13,7 +20,7 @@ export function sleep(timeout) {
 // '_~0123456789' +
 // 'abcdefghijklmnopqrstuvwxyz' +
 // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const randomString =
+export const randomString =
   '_~getRandomVcryp0123456789bfhijklqsuvwxzABCDEFGHIJKLMNOPQSTUWXYZ';
 
 // https://github.com/ai/nanoid/blob/master/non-secure.js
@@ -199,4 +206,22 @@ export function debounce(func, wait, immediate) {
 
     return result;
   };
+}
+
+export function getPlainNode(nodeList, parentPath = '') {
+  const arr = [];
+  nodeList.forEach(node => {
+    const item = node;
+    item.path = `${parentPath}/${item.path || ''}`.replace(/\/+/g, '/');
+    item.exact = true;
+    if (item.children && !item.component) {
+      arr.push(...getPlainNode(item.children, item.path));
+    } else {
+      if (item.children && item.component) {
+        item.exact = false;
+      }
+      arr.push(item);
+    }
+  });
+  return arr;
 }

@@ -1,4 +1,4 @@
-# 小型公共库
+# 公共代码库
 
 常用方法收集
 
@@ -23,6 +23,17 @@
   - neq
 - formatDate
 - formatCountDown
+
+## Device 设备类型
+
+```js
+if (/Mac OS X/.test(navigator.userAgent)) document.documentElement.className += ' plat_osx';
+else if (/Linux|FreeBSD/.test(navigator.userAgent)) document.documentElement.className += ' plat_linux';
+else document.documentElement.className += ' plat_win';
+
+if (/WOW64|Win64|x86_64/.test(navigator.userAgent)) document.documentElement.className += ' arch_64';
+else document.documentElement.className += ' arch_32';
+```
 
 ## faq
 

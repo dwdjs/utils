@@ -1,5 +1,7 @@
 // 汇总
 
-export * from './is';
-export * from './utils';
-export * from './date';
+export * from './utils/is';
+export * from './utils/utils';
+export * from './utils/date';
+export * from './load';
+export * from './qs';
