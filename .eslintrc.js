@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
-  // parser: 'babel-eslint',
-  parser: 'typescript-eslint-parser',
+  parser: 'babel-eslint',
+  // parser: 'typescript-eslint-parser',
   parserOptions: {
     ecmaVersion: 10,
     sourceType: 'module',
@@ -36,7 +36,7 @@ module.exports = {
     // '@babel/preset-env',
     // 'essentials',
     'prettier',
-    'typescript',
+    // 'typescript',
   ],
   rules: {
     // prettier.config.js or .prettierrc.js
@@ -57,8 +57,8 @@ module.exports = {
         // bracketSpacing: true, // 花括号内部前后有空格
       },
     ],
-    'typescript/class-name-casing': 'error',
-    'typescript/type-annotation-spacing': 'error',
+    // 'typescript/class-name-casing': 'error',
+    // 'typescript/type-annotation-spacing': 'error',
     // 'comma-dangle': [
     //   'error',
     //   {

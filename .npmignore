@@ -5,6 +5,7 @@ src
 .npmignore
 .gitignore
 .browserslistrc
+temp
 
 coverage
 benchmark

@@ -1,7 +1,7 @@
 // import device from './device'
 const noop = () => {};
-const error = (url) => {
-  console.log(`load script error ${url}`)
+const error = url => {
+  console.log(`load script error ${url}`);
 };
 const doc = document;
 const domHead = doc.querySelector('head');
@@ -16,18 +16,18 @@ export function loadJs(scriptUrl, obj = {}) {
     obj = {
       async: true, // 异步加载
       defer: true, // 延迟加载
-    }
+    };
   }
   script.async = obj.async;
   script.defer = obj.defer;
   script.src = scriptUrl;
 
   script.onload = () => {
-    (obj.onload || noop)()
-  }
+    (obj.onload || noop)();
+  };
   script.onerror = () => {
-    (obj.onerror || error)(scriptUrl)
-  }
+    (obj.onerror || error)(scriptUrl);
+  };
   // script.crossOrigin = 'anonymous';
   // s.parentNode.insertBefore(s1, s);
   if (obj.first) {

@@ -4,13 +4,13 @@ import { debug } from './debug';
 // https://code.i-harness.com/en/q/12f5024
 // navigator.platform 表示浏览器正在执行的平台
 const {
-  appCodeName, // 浏览器代号
+  // appCodeName, // 浏览器代号
   appName, // 浏览器名称/当前运行的客户端(网页端要改掉，不然没什么意义)
   appVersion, // 当前客户端版本
-  cookieEnabled, // 启用Cookies
+  // cookieEnabled, // 启用Cookies
   platform = '', // 硬件平台
   userAgent, // 用户代理
-  language, // 语言
+  // language, // 语言
 } = navigator;
 const ua = userAgent;
 
@@ -89,30 +89,70 @@ const safari =
 
 /* eslint no-unused-expressions: 0, no-sequences: 0, no-multi-assign: 0, prefer-destructuring: 0 */
 if ((browser.webkit = !!webkit)) browser.version = webkit[1];
-if (android)
-  (os.android = true),
-    (os.version = android[2]),
-    (device.androidChrome = !!(ua.toLowerCase().indexOf('chrome') >= 0));
-if (iphone && !ipod)
-  (os.ios = os.iphone = true), (os.version = iphone[2].replace(/_/g, '.'));
-if (ipad) (os.ios = os.ipad = true), (os.version = ipad[2].replace(/_/g, '.'));
-if (ipod)
-  (os.ios = os.ipod = true),
-    (os.version = ipod[3] ? ipod[3].replace(/_/g, '.') : null);
-if (wp) (os.wp = true), (os.version = wp[1]);
-if (webos) (os.webos = true), (os.version = webos[2]);
+if (android) {
+  os.android = true;
+  os.version = android[2];
+  device.androidChrome = !!(ua.toLowerCase().indexOf('chrome') >= 0);
+}
+if (iphone && !ipod) {
+  os.ios = os.iphone = true;
+  os.version = iphone[2].replace(/_/g, '.');
+}
+if (ipad) {
+  os.ios = os.ipad = true;
+  os.version = ipad[2].replace(/_/g, '.');
+}
+if (ipod) {
+  os.ios = os.ipod = true;
+  os.version = ipod[3] ? ipod[3].replace(/_/g, '.') : null;
+}
+if (wp) {
+  os.wp = true;
+  os.version = wp[1];
+}
+if (webos) {
+  os.webos = true;
+  os.version = webos[2];
+}
 if (touchpad) os.touchpad = true;
-if (blackberry) (os.blackberry = true), (os.version = blackberry[2]);
-if (bb10) (os.bb10 = true), (os.version = bb10[2]);
-if (rimtabletos) (os.rimtabletos = true), (os.version = rimtabletos[2]);
+if (blackberry) {
+  os.blackberry = true;
+  os.version = blackberry[2];
+}
+if (bb10) {
+  os.bb10 = true;
+  os.version = bb10[2];
+}
+if (rimtabletos) {
+  os.rimtabletos = true;
+  os.version = rimtabletos[2];
+}
 if (playbook) browser.playbook = true;
-if (kindle) (os.kindle = true), (os.version = kindle[1]);
-if (silk) (browser.silk = true), (browser.version = silk[1]);
+if (kindle) {
+  os.kindle = true;
+  os.version = kindle[1];
+}
+if (silk) {
+  browser.silk = true;
+  browser.version = silk[1];
+}
 if (!silk && os.android && ua.match(/Kindle Fire/)) browser.silk = true;
-if (chrome) (browser.chrome = true), (browser.version = chrome[1]);
-if (firefox) (browser.firefox = true), (browser.version = firefox[1]);
-if (firefoxos) (os.firefoxos = true), (os.version = firefoxos[1]);
-if (ie) (browser.ie = true), (browser.version = ie[1]);
+if (chrome) {
+  browser.chrome = true;
+  browser.version = chrome[1];
+}
+if (firefox) {
+  browser.firefox = true;
+  browser.version = firefox[1];
+}
+if (firefoxos) {
+  os.firefoxos = true;
+  os.version = firefoxos[1];
+}
+if (ie) {
+  browser.ie = true;
+  browser.version = ie[1];
+}
 if (safari && (osx || os.ios || win)) {
   browser.safari = true;
   if (!os.ios) browser.version = safari[1];
@@ -180,15 +220,42 @@ if (debug.host) {
   }
 }
 
-if (qq) (host.qq = true), (host.version = qq[1]);
-if (wechat) (host.wechat = true), (host.version = wechat[1]);
-if (alipay) (host.alipay = true), (host.version = alipay[1]);
-if (dingtalk) (host.dingtalk = true), (host.version = dingtalk[1]);
-if (taobao) (host.taobao = true), (host.version = taobao[1]);
-if (msf) (host.msf = true), (host.version = msf[2]);
-if (hsq) (host.hsq = true), (host.version = hsq[2]);
-if (iqg) (host.iqg = true), (host.version = iqg[2]);
-if (iqgsh) (host.iqgsh = true), (host.version = iqgsh[1]);
+if (qq) {
+  host.qq = true;
+  host.version = qq[1];
+}
+if (wechat) {
+  host.wechat = true;
+  host.version = wechat[1];
+}
+if (alipay) {
+  host.alipay = true;
+  host.version = alipay[1];
+}
+if (dingtalk) {
+  host.dingtalk = true;
+  host.version = dingtalk[1];
+}
+if (taobao) {
+  host.taobao = true;
+  host.version = taobao[1];
+}
+if (msf) {
+  host.msf = true;
+  host.version = msf[2];
+}
+if (hsq) {
+  host.hsq = true;
+  host.version = hsq[2];
+}
+if (iqg) {
+  host.iqg = true;
+  host.version = iqg[2];
+}
+if (iqgsh) {
+  host.iqgsh = true;
+  host.version = iqgsh[1];
+}
 
 // iOS 8+ changed UA ?
 if (os.ios && os.version && ua.indexOf('Version/') >= 0) {
@@ -215,6 +282,7 @@ system = android ? 'android' :
 
 // 操作系统
 // prettier-ignore
+/* eslint indent: 0 */
 os.name = android ? 'android' :
   (ipad || iphone || ipod) ? 'ios' :
   win ? 'windows' :
@@ -273,7 +341,6 @@ if (os.name === 'ios') {
 }
 
 // Check for status bar and fullscreen app mode
-/* global screen */
 const { innerWidth, innerHeight, screen } = window; // $(window).width()
 device.statusBar = false;
 if (webview && innerWidth * innerHeight === screen.width * screen.height) {
@@ -395,8 +462,8 @@ device.getSystemInfo = () => {
     hostVersion: host.version,
     browser: browser.name,
     browserVersion: browser.version,
-  }
-}
+  };
+};
 
 console.log('device: ', device);
 export default device;
@@ -432,8 +499,7 @@ export default device;
 
 // eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('8 7={"6":5,"4":"3 2","1":"0"};',9,9,'Desktop|form_factor|Chrome|Google|complete_device_name|false|is_mobile|WURFL|var'.split('|'),0,{}))
 
-
- /*! browsecore v0.1 | (c) 2017 osfipin*/
+/*! browsecore v0.1 | (c) 2017 osfipin*/
 // (function (w) {
 //   "use strict";
 //   var n = w.navigator,d = w.document;

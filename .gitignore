@@ -7,6 +7,13 @@ npm-debug.log
 yarn.lock
 package-lock.json
 node_modules
+temp
+
+# bridge
+wechat.js
+alipay.js
+appShare.js
+bridgeready
 
 /*.js
 /*

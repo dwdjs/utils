@@ -123,7 +123,8 @@ export class Storage {
       return '';
     }
     if (temp.timeout && Number.isInteger(Number(temp.cycle))) {
-      const cycleEndTimes = new Date(temp.timeout).setHours(0, 0, 0, 0) + temp.cycle * 1000;
+      const cycleEndTimes =
+        new Date(temp.timeout).setHours(0, 0, 0, 0) + temp.cycle * 1000;
       if (temp.timeout < cycleEndTimes) {
         // 缓存周期点过期
         this.remove(key);

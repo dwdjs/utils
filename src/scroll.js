@@ -84,19 +84,26 @@ export default {
 
   // 设置滚动高度
   setScrollTop(element, value) {
-    'scrollTop' in element ? (element.scrollTop = value) : element.scrollTo(element.scrollX, value);
+    'scrollTop' in element
+      ? (element.scrollTop = value)
+      : element.scrollTo(element.scrollX, value);
   },
 
   // 获取元素距离顶部高度
   getElementTop(element) {
     return (
-      (element === window ? 0 : element.getBoundingClientRect().top) + this.getScrollTop(window)
+      (element === window ? 0 : element.getBoundingClientRect().top) +
+      this.getScrollTop(window)
     );
   },
 
   getVisibleHeight(element) {
-    return element === window ? element.innerHeight : element.getBoundingClientRect().height;
+    return element === window
+      ? element.innerHeight
+      : element.getBoundingClientRect().height;
   },
 
-  getComputedStyle: !isServer && document.defaultView.getComputedStyle.bind(document.defaultView),
+  getComputedStyle:
+    !isServer &&
+    document.defaultView.getComputedStyle.bind(document.defaultView),
 };

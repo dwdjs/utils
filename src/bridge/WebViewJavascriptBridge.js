@@ -158,7 +158,7 @@
         try {
           handler && handler(message.data, responseCallback);
         } catch (exception) {
-          if (typeof console != 'undefined') {
+          if (typeof console !== 'undefined') {
             console.warn(
               'WebViewJavascriptBridge: WARNING: javascript handler throw.',
               message,
@@ -187,7 +187,7 @@
     if (responseCallback) {
       var callbackId = 'cb_' + uniqueId++ + '_' + new Date().getTime();
       responseCallbacks[callbackId] = responseCallback;
-      message['callbackId'] = callbackId;
+      message.callbackId = callbackId;
     }
     sendMessageQueue.push(message);
     console.log(JSON.stringify(sendMessageQueue));
@@ -198,20 +198,27 @@
 
   // 向 native 发送消息，该函数作用：
   // 原觅食蜂方法是 msfJsBridge ，现改为公司通用的 dwdJsBridge ，而做兼容
+  function callIphoneBridge(msg) {
+    if (
+      window.webkit &&
+      window.webkit.messageHandlers &&
+      window.webkit.messageHandlers.dwdJsBridge &&
+      window.webkit.messageHandlers.dwdJsBridge.postMessage
+    ) {
+      return window.webkit.messageHandlers.dwdJsBridge.postMessage(msg);
+    }
+    if (
+      window.webkit &&
+      window.webkit.messageHandlers &&
+      window.webkit.messageHandlers.msfJsBridge &&
+      window.webkit.messageHandlers.msfJsBridge.postMessage
+    ) {
+      return window.webkit.messageHandlers.msfJsBridge.postMessage(msg);
+    }
+  }
   function _sendMessage(msg) {
     if (isIphone) {
-      if (window.webkit &&
-        window.webkit.messageHandlers &&
-        window.webkit.messageHandlers.dwdJsBridge &&
-        window.webkit.messageHandlers.dwdJsBridge.postMessage) {
-          return window.webkit.messageHandlers.dwdJsBridge.postMessage(msg);
-      }
-      if (window.webkit &&
-        window.webkit.messageHandlers &&
-        window.webkit.messageHandlers.msfJsBridge &&
-        window.webkit.messageHandlers.msfJsBridge.postMessage) {
-          return window.webkit.messageHandlers.msfJsBridge.postMessage(msg);
-      }
+      return callIphoneBridge(msg);
     } else if (isAndroid) {
       // console.log('android');
       if (window.dwdJsBridge && window.dwdJsBridge.callNative) {
@@ -335,7 +342,7 @@
       each(args, function(arg, key) {
         // 不是 commonArgs 中列出的方法，是要给 Native 传递的 message
         // 先将其转存到 data 上
-        if (commonArgs.indexOf(key) == -1) {
+        if (commonArgs.indexOf(key) === -1) {
           data[key] = args[key];
           delete args[key];
         }
@@ -352,7 +359,7 @@
       each(commonArgs, function(handlerName) {
         var typeHandler = args[handlerName];
         // 同一个监听器不要重复监听
-        if (typeHandler && cache[handlerName].indexOf(typeHandler) == -1) {
+        if (typeHandler && cache[handlerName].indexOf(typeHandler) === -1) {
           cache[handlerName].push(typeHandler);
         }
       });
