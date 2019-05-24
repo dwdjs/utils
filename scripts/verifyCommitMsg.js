@@ -4,7 +4,7 @@ const msg = require('fs')
   .readFileSync(msgPath, 'utf-8')
   .trim();
 
-const commitRE = /^(v\d+\.\d+\.\d+(-(alpha|beta|rc.\d+))?$)|(Merge)|(Publish)|((revert: )?(feat|fix|docs|style|refactor|perf|test|comments|workflow|ci|chore|types|modified|tag)(\(.+\))?: .{1,50})/;
+const commitRE = /^(v?\d+\.\d+\.\d+(-(alpha|beta|rc.\d+))?$)|(Merge)|(Publish)|((revert: )?(feat|fix|docs|style|refactor|perf|test|comments|workflow|ci|chore|types|modified)(\(.+\))?: .{1,50})/;
 
 if (!commitRE.test(msg)) {
   console.log();
