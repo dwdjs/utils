@@ -24,4 +24,5 @@ tempCodeRunnerFile.js
 !/__tests__
 !/benchmark
 !/scripts
+!/CHANGELOG.md
 !/.*
