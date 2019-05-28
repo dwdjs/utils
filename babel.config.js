@@ -5,9 +5,6 @@ module.exports = {
       {
         // corejs: 3,
         // loose: false,
-        targets: {
-          node: 'current',
-        },
         modules: 'cjs',
         // modules: 'commonjs',
       },

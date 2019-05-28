@@ -3,7 +3,7 @@ import {
   upperFirst,
   kebabCase,
   camelCase,
-  sleep,
+  // sleep,
   merge,
 } from '../src';
 
@@ -33,12 +33,12 @@ test('camelCase', () => {
   expect(camelCase('order-detail')).toBe('orderDetail');
 });
 
-it('sleep', async () => {
-  const sleepTimes = await sleep(100);
-  expect(sleepTimes).toBe(100);
-});
+// test('sleep', async () => {
+//   const sleepTimes = await sleep(100);
+//   expect(sleepTimes).toBe(100);
+// });
 
-it('merge', async () => {
+test('merge', () => {
   const result = JSON.stringify(merge({ a: 1, b: 2 }, { a: 3, c: 4 }));
   expect(result).toBe(`{\"a\":3,\"b\":2,\"c\":4}`);
 });

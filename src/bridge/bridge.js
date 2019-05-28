@@ -89,6 +89,14 @@ var Bridge = {
       bridge.addMethods(bridgeMethods);
       bridge.addEvents(bridgeEvents);
 
+      // 直接执行 xxx
+      const that = this;
+      bridge.getNativeFnList({
+        success(res) {
+          const { data = [] } = res;
+          that.nativeFnList = data;
+        },
+      });
       // Object.assign(bridge, window.webAttributes);
 
       // 把 ready 中缓存执行了
@@ -105,6 +113,9 @@ var Bridge = {
     } else {
       callback(window.WebViewJavascriptBridge);
     }
+  },
+  canIUse(fnName) {
+    return this.nativeFnList.indexOf[fnName] > -1;
   },
   scanQRCode() {
     const bridge = window.WebViewJavascriptBridge;

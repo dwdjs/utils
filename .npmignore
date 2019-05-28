@@ -12,3 +12,4 @@ benchmark
 .eslintrc.js
 .*
 yarn.lock
+demo

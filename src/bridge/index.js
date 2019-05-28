@@ -30,6 +30,7 @@ switch (device.host.name) {
   case 'msf':
   case 'hsq':
   case 'iqg':
+  case 'jsz':
   case 'iqgsh':
     require('./WebViewJavascriptBridge');
     const Bridge = require('./bridge');
