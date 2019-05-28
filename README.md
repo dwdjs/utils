@@ -2,18 +2,37 @@
 
 常用方法收集
 
-- forEachObj
-- deepCopy
-- find
-- isObject
-- isPromise
-- uuid
-- throttle
-- debounce
-- upperFirst
-- kebabCase
-- camelCase
-- merge
+- @dwdjs/utils
+  - forEachObj
+  - deepCopy
+  - find
+  - isObject
+  - isPromise
+  - uuid
+  - throttle
+  - debounce
+  - upperFirst
+  - kebabCase
+  - camelCase
+  - merge
+  - formatDate
+  - formatCountDown
+- @dwdjs/utils/qs 处理 query-string
+  - parse
+  - stringify
+  - compact
+  - compactObject
+- @dwdjs/utils/cache
+  - storage
+  - cookie
+- @dwdjs/utils/tongji
+- @dwdjs/utils/bridge
+  - WebViewJavascriptBridge
+- @dwdjs/utils/rem
+- @dwdjs/utils/dload
+- @dwdjs/utils/device
+- @dwdjs/utils/debug
+- @dwdjs/utils/emitter
 - version 参见 semver
   - gt
   - gte
@@ -21,8 +40,7 @@
   - lte
   - eq
   - neq
-- formatDate
-- formatCountDown
+
 
 ## Device 设备类型
 
@@ -72,13 +90,6 @@ TypeError: Cannot assign to read only property 'Symbol(Symbol.toStringTag)' of o
 ReferenceError: regeneratorRuntime is not defined
 ```
 
-调整 `babel.config.js`，添加
+调整 `babel.config.js`
 
-```js
-'@babel/preset-env',
-  {
-  targets: {
-    node: 'current',
-  },
-}
-```
+支持浏览器版本判断 `.browserslistrc`
