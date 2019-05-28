@@ -325,7 +325,7 @@ const terminal = debug.aliapp ? 'aliapp' :
   iphone ? 'ios' :
   android ? 'android' :
   alipay ? 'alipay' :
-  wechat ? 'wechat' :
+  // wechat ? 'wechat' : // 这里没有 wechat
   'wap';
 // const getEls = function (el) {
 //   return document.querySelectorAll(el)
