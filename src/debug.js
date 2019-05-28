@@ -16,8 +16,10 @@ function getParams() {
     host: params.d_host,
     console: params.d_console,
     mock: params.d_mock,
-    // proxy: params.d_proxy,
+    proxy: params.d_proxy,
     channel: params.d_channel,
+    aliapp: params.d_aliapp,
+    wxapp: params.d_wxapp,
   };
 }
 

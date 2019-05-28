@@ -319,6 +319,14 @@ browser.name = chrome ? 'chrome' :
   webview ? 'webview' :
   'unknown';
 
+// prettier-ignore
+const terminal = debug.aliapp ? 'aliapp' :
+  debug.wxapp ? 'wxapp' :
+  iphone ? 'ios' :
+  android ? 'android' :
+  alipay ? 'alipay' :
+  wechat ? 'wechat' :
+  'wap';
 // const getEls = function (el) {
 //   return document.querySelectorAll(el)
 // }
@@ -425,6 +433,9 @@ Object.assign(device, {
   os,
   host,
   browser,
+  wxapp: !!debug.wxapp,
+  aliapp: !!debug.aliapp,
+  terminal,
 
   // 最常用的，提高一层
   iphone: !!iphone,
@@ -451,6 +462,7 @@ device.getSystemInfo = () => {
   // js引擎 jsEngine
   // 当前语言 language
   return {
+    terminal,
     system,
     platform,
     ua,
