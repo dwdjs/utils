@@ -18,11 +18,13 @@ bridgeready
 !/demo
 /*.js
 /*
+/examples
 tempCodeRunnerFile.js
 !/*.config.js
 !/src
 !/__tests__
 !/benchmark
+!/scripts
 !/scripts
 !/CHANGELOG.md
 !/.*

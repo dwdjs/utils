@@ -6,6 +6,7 @@ module.exports = {
         // corejs: 3,
         // loose: false,
         modules: 'cjs',
+        // useBuiltIns: 'entry',
         // modules: 'commonjs',
       },
     ],
