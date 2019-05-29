@@ -1,6 +1,6 @@
 {
   "name": "@dwdjs/utils",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "utils",
   "miniprogram": "./",
   "main": "./index.js",
@@ -14,7 +14,7 @@
     "commit": "npm run lint & npx git-cz",
     "lint": "eslint ./src/**/*.js",
     "release": "yarn --pure-lockfile && yarn clean && node scripts/release.js",
-    "version": "node scripts/markVersions.js && node scripts/genChangelog.js",
+    "versions": "node scripts/markVersions.js && node scripts/genChangelog.js",
     "changelog": "node scripts/genChangelog.js run",
     "test": "npm run build & jest --no-cache --detectOpenHandles",
     "ci": "npm run lint && npm run test -- --coverage"
