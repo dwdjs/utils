@@ -3,10 +3,10 @@ module.exports = {
     [
       '@babel/preset-env',
       {
-        // corejs: 3,
+        corejs: 3,
         // loose: false,
         modules: 'cjs',
-        // useBuiltIns: 'entry',
+        useBuiltIns: 'entry',
         // modules: 'commonjs',
       },
     ],
@@ -17,12 +17,12 @@ module.exports = {
   plugins: [
     // 结合 webpack 和 @babel/preset-env 使用
     '@babel/plugin-syntax-dynamic-import',
-    // [
-    //   '@babel/plugin-transform-runtime',
-    //   {
-    //     corejs: false,
-    //   },
-    // ],
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        corejs: false,
+      },
+    ],
     // 'babel-plugin-module-resolver',
 
     // https://babeljs.io/docs/en/plugins

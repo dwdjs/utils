@@ -31,10 +31,11 @@ export function isDef(v) {
 export function isNumber(v) {
   return toString.call(v) === '[object Number]';
 }
+
+if (!Number.isInteger) {
+  Number.prototype.isInteger = isNumber(v) && parseInt(v) === v;
+}
 export function isInteger(v) {
-  if (!Number.isInteger) {
-    Number.prototype.isInteger = isInteger;
-  }
   return Number.isInteger(v);
 }
 
