@@ -1,6 +1,6 @@
 {
   "name": "@dwdjs/utils",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "utils",
   "miniprogram": "./",
   "main": "./index.js",
