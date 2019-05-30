@@ -33,7 +33,9 @@ export function isNumber(v) {
 }
 
 if (!Number.isInteger) {
-  Number.prototype.isInteger = isNumber(v) && parseInt(v) === v;
+  Number.prototype.isInteger = function(v) {
+    return isNumber(v) && parseInt(v) === v;
+  };
 }
 export function isInteger(v) {
   return Number.isInteger(v);
