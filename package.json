@@ -10,6 +10,7 @@
   "scripts": {
     "preinstall": "npm config set registry http://maven.doweidu.com/repository/npm-group/",
     "prepublish": "npm config set registry http://maven.doweidu.com/repository/npm-group/ && npm run build",
+    "dev": "./node_modules/.bin/babel src -s inline -d ./ --ignore __test__",
     "build": "./node_modules/.bin/babel src -d ./ --ignore __test__",
     "commit": "npm run lint & npx git-cz",
     "lint": "eslint ./src/**/*.js",
@@ -43,8 +44,8 @@
     "node": ">=11.12.0"
   },
   "dependencies": {
-    "js-cookie": "^2.2.0",
-    "@babel/runtime": "^7.4.5"
+    "@babel/runtime": "^7.4.5",
+    "js-cookie": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -69,6 +70,7 @@
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-plugin-istanbul": "^5.1.4",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-jest": "^24.6.0",
     "benchmark": "^2.1.4",
     "chalk": "^2.4.2",

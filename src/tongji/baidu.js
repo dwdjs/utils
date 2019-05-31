@@ -3,12 +3,13 @@
 /* eslint no-underscore-dangle: 0 */
 const _hmt = window._hmt || [];
 
-export default {
+export const baidu = {
   install(tongji, config = {}) {
     this.config = config;
-    tongji.on('trackPageView', this.pv);
-    tongji.on('trackEvent', this.event);
-    tongji.on('setCustomVar', this.custom);
+    console.log(config);
+    tongji.on('trackPageView', this.pv, this);
+    tongji.on('trackEvent', this.event, this);
+    tongji.on('setCustomVar', this.custom, this);
   },
 
   // 示例：trackPageView('/virtual/login']);
@@ -24,6 +25,7 @@ export default {
   /* eslint camelcase: 0 */
   // 示例：trackEvent(category, action, opt_label, opt_value)
   event(action, value = '', category = '') {
+    category = category || this.config.category || '';
     _hmt.push(['_trackEvent', category, action, value]);
   },
 

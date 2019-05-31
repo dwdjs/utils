@@ -15,10 +15,10 @@ const tongji = new Tongji({
 })
 
 tongji.use(piwik, {
-  category: 'hsq',
+  // category: 'hsq',
 });
 tongji.use(baidu, {
-  category: 'msf',
+  // category: 'msf',
 });
 
 export default tongji;
@@ -34,7 +34,7 @@ tongji.pv('detail?id=xxx');
 
 ## 设想
 
-排除干扰，只有真正的生产环境，才去统计（测试环境的log日志输出即可）
+排除干扰，只有真正的生产环境，才去统计（测试环境的log console输出即可）
 
 - 百度统计   http://tongji.baidu.com/open/api/more?p=ref_setCustomVar
 - pwiki统计 https://developer.piwik.org/guides/tracking-javascript-guide

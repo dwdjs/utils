@@ -93,3 +93,10 @@ ReferenceError: regeneratorRuntime is not defined
 调整 `babel.config.js`
 
 支持浏览器版本判断 `.browserslistrc`
+
+需求优先级
+
+P0 - 战略需求
+P1 - 重要紧急
+P2 - 重要不紧急
+P3 - 紧急不重要

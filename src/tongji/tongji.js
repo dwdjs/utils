@@ -1,21 +1,28 @@
 // 约定/注入插件化
 // 事件插件化 √
 
-import Emitter from '../emitter';
-import { isObject } from '../';
+import { Emitter } from '../emitter.js';
+// import { isObject } from '../';
+
+function isObject(v) {
+  return v !== null && typeof v === 'object' && Array.isArray(v) === false;
+}
 
 export class Tongji extends Emitter {
-  constructor() {}
+  constructor(config = {}) {
+    super();
+    this.config = { ...config };
+  }
   use(plugin, config = {}) {
     const installedPlugins =
       this._installedPlugins || (this._installedPlugins = []);
     if (installedPlugins.indexOf(plugin) > -1) return this;
 
-    config = { ...this.config, config };
+    const opts = { ...this.config, ...config };
     if (typeof plugin.install === 'function') {
-      plugin.install.call(plugin, this, config);
+      plugin.install.call(plugin, this, opts);
     } else if (typeof plugin === 'function') {
-      plugin.call(null, this, config);
+      plugin.call(null, this, opts);
     }
     installedPlugins.push(plugin);
     return this;
@@ -35,7 +42,6 @@ export class Tongji extends Emitter {
     if (typeof value !== 'string') {
       value = JSON.stringify(value);
     }
-    category = category || this.category || '';
     this.emit('trackEvent', action, value, category);
   }
   // setCustomVar

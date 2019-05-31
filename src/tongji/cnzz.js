@@ -3,7 +3,7 @@
 /* eslint no-underscore-dangle: 0 */
 const _czc = window._czc || [];
 
-export default {
+export const cnzz = {
   install(tongji, config = {}) {
     this.config = config;
     tongji.on('trackPageView', this.pv);
