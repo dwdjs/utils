@@ -1,5 +1,4 @@
-// Semantic Versioning Delimiter.
-
+// 轻量级语义版本比较
 function compare(v1, v2, complete) {
   v1 = String(v1);
   v2 = String(v2);

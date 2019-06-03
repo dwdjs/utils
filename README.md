@@ -2,51 +2,63 @@
 
 常用方法收集
 
-- @dwdjs/utils
-  - forEachObj
-  - deepCopy
-  - find
-  - isObject
-  - isPromise
-  - uuid
-  - throttle
-  - debounce
-  - upperFirst
-  - kebabCase
-  - camelCase
-  - merge
-  - formatDate
-  - formatCountDown
-- @dwdjs/utils/qs 处理 url query-string
-  - parse
-  - stringify
-  - compact
-  - compactObject
-- @dwdjs/utils/cache
-  - storage
-  - cookie
-- @dwdjs/utils/tongji
-  - Tongji
-  - piwik
-  - baidu
-- @dwdjs/utils/report
-- @dwdjs/utils/bridge
-  - WebViewJavascriptBridge
-- @dwdjs/utils/rem
-- @dwdjs/utils/dload
-  - loadJs
-  - loadCss
-- @dwdjs/utils/device
-  - device
-- @dwdjs/utils/debug
-- @dwdjs/utils/emitter
-  - Emitter
-- version 参见 semver
-  - eq
-  - gt
-  - gte
-  - lt
-  - lte
+- `import { xxx } from @dwdjs/utils;`
+  - is
+    - hasOwn
+    - isUnDef
+    - isDef
+    - isNumber
+    - isInteger
+    - isString
+    - isArray
+    - isObject
+    - isFunction (alias isFn)
+    - isEmptyObject
+    - isPromise
+    - looseEqual (alias isEqual)
+  - utils
+    - sleep
+    - random
+    - randomRange
+    - uuid
+    - forEachValue
+    - cached
+    - upperFirst
+    - kebabCase
+    - camelCase
+    - merge
+    - throttle
+    - debounce
+    - getPlainNode
+  - dload
+    - `import { loadJs, loadCss } from '@dwdjs/utils';`
+    - loadJs
+    - loadCss
+  - date
+    - formatDate
+    - formatCountDown
+  - qs 处理 url query-string
+    - copy
+    - parse
+    - stringify
+    - compact
+    - compactObject
+  - cache 持久化缓存相关
+    - storage
+    - cookie
+  - 其他
+    - Emitter
+    - Version (eq, gt, gte, lt, lte)
+  - [ ] forEachObj
+  - [ ] deepCopy
+  - [ ] find
+- 独立文件方法
+  - `import @dwdjs/utils/rem;`
+  - `import { debug } from '@dwdjs/utils/debug';`
+  - `import device from '@dwdjs/utils/device';`
+  - `import @dwdjs/utils/bridge/WebViewJavascriptBridge`
+  - [ ] `import { Tongji, baidu, piwik } from @dwdjs/utils/tongji;`
+  - [ ] `import jsReport from  @dwdjs/utils/report;`
 
 ## Device 设备类型
 
