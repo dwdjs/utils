@@ -1,7 +1,7 @@
 // 约定/注入插件化
 // 事件插件化 √
 
-import { Emitter } from '../emitter.js';
+import { Emitter } from '../utils/emitter.js';
 // import { isObject } from '../';
 
 function isObject(v) {
