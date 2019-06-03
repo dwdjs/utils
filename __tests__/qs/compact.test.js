@@ -1,4 +1,4 @@
-import { compact } from '../../src/qs';
+import { compact } from '../../src';
 
 // 默认
 // filter1 =  ['', 0, undefined, false, NaN]

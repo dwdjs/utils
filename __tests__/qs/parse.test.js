@@ -1,4 +1,4 @@
-import { parse } from '../../src/qs';
+import { parse } from '../../src';
 
 const test1 =
   'https://m.iqianggou.com/?from=singlemessage&isappinstalled=0#bargain?id=646156&platform=5';

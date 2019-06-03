@@ -1,4 +1,4 @@
-import { Version } from '../src/';
+import { Version } from '../src';
 
 const v = '3.8.5';
 const version = new Version(v);
