@@ -24,9 +24,9 @@
 
 // const cache = LRU(options)
 // const otherCache = LRU(50)
+import { isInteger } from '../index';
 
 export const { localStorage, sessionStorage } = window;
-let i = 1;
 let storageData = {};
 const store = {
   local: localStorage,
@@ -59,7 +59,10 @@ const store = {
  */
 export class Storage {
   constructor(prekey = 'store', type = 'local') {
-    const storeKey = `${prekey}-${i++}`;
+    // 删除自加属性，避免因顺序产生的 `prekey` 意外
+    // 为处理老版本问题，此方法应设定一个定期清除的机制
+    // 可以内置一个数据来管理此方法生效，版本、何时清除老数据等问题
+    const storeKey = `${prekey}`;
     if (type !== 'local') {
       type = 'session';
     }
@@ -72,11 +75,11 @@ export class Storage {
     // time 单位秒，默认600为10分钟，传0 代表永久性缓存
     // cycle 单位秒，指定隔天N点时间过后即过期，如每日凌晨2点过去，设定 cycle=7200
     if (!key) return;
-    if (!Number.isInteger(Number(time))) {
+    if (!isInteger(Number(time))) {
       console.error(`'time' must be Integer Number`);
       return;
     }
-    if (typeof cycle !== 'undefined' && !Number.isInteger(Number(cycle))) {
+    if (typeof cycle !== 'undefined' && !isInteger(Number(cycle))) {
       console.error(`'cycle' must be Integer Number`);
       return;
     }
@@ -87,7 +90,7 @@ export class Storage {
       if (typeof cycle !== 'undefined') {
         data.cycle = cycle;
       }
-      if (!Number.isInteger(Number(time))) {
+      if (!isInteger(Number(time))) {
         console.error(`'time' must be Integer Number`);
         return;
       }
@@ -122,7 +125,7 @@ export class Storage {
       this.remove(key);
       return '';
     }
-    if (temp.timeout && Number.isInteger(Number(temp.cycle))) {
+    if (temp.timeout && isInteger(Number(temp.cycle))) {
       const cycleEndTimes =
         new Date(temp.timeout).setHours(0, 0, 0, 0) + temp.cycle * 1000;
       if (temp.timeout < cycleEndTimes) {

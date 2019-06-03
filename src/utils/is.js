@@ -1,14 +1,14 @@
 /*!
  * 类型判断
- *
- * 整理参考
- * https://github.com/vuejs/vue/blob/dev/src/shared/util.js
- * https://github.com/enricomarino/is
+ * @dwdjs/utils
  */
 
 /**
  * 常用类型判断
  * 是否定义 字符串 数字 纯对象 空对象 数组 函数
+ * 整理参考
+ * https://github.com/vuejs/vue/blob/dev/src/shared/util.js
+ * https://github.com/enricomarino/is
  */
 
 const objProto = Object.prototype;
@@ -30,6 +30,9 @@ export function isDef(v) {
 
 export function isNumber(v) {
   return toString.call(v) === '[object Number]';
+}
+export function isInteger(v) {
+  return isNumber(v) && parseInt(v) === v;
 }
 
 export function isString(v) {

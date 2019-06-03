@@ -13,6 +13,7 @@ const {
   // language, // 语言
 } = navigator;
 const ua = userAgent;
+console.log('ua:', ua);
 
 // https://github.com/matthewhudson/current-device
 // 获取系统信息 getSystemInfo
@@ -462,10 +463,10 @@ device.getSystemInfo = () => {
   // js引擎 jsEngine
   // 当前语言 language
   return {
+    ua,
     terminal,
     system,
     platform,
-    ua,
     appName,
     appVersion,
     os: os.name,

@@ -6,6 +6,8 @@ module.exports = {
         // corejs: 3,
         // loose: false,
         modules: 'cjs',
+        // modules: 'umd',
+        // useBuiltIns: 'entry',
         // modules: 'commonjs',
       },
     ],
@@ -15,13 +17,14 @@ module.exports = {
   ],
   plugins: [
     // 结合 webpack 和 @babel/preset-env 使用
+    // 'transform-es2015-modules-umd', // 输出 umd
     '@babel/plugin-syntax-dynamic-import',
-    // [
-    //   '@babel/plugin-transform-runtime',
-    //   {
-    //     corejs: false,
-    //   },
-    // ],
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        corejs: false,
+      },
+    ],
     // 'babel-plugin-module-resolver',
 
     // https://babeljs.io/docs/en/plugins

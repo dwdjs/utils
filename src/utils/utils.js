@@ -13,6 +13,8 @@ export function sleep(timeout) {
   });
 }
 
+export function noop() {}
+
 // export function find(list, fn) {
 //   return list.filter(fn)[0]
 // }

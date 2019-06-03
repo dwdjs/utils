@@ -1,6 +1,6 @@
 {
   "name": "@dwdjs/utils",
-  "version": "0.1.6",
+  "version": "0.1.12",
   "description": "utils",
   "miniprogram": "./",
   "main": "./index.js",
@@ -10,11 +10,12 @@
   "scripts": {
     "preinstall": "npm config set registry http://maven.doweidu.com/repository/npm-group/",
     "prepublish": "npm config set registry http://maven.doweidu.com/repository/npm-group/ && npm run build",
+    "dev": "./node_modules/.bin/babel src -s inline -d ./ --ignore __test__",
     "build": "./node_modules/.bin/babel src -d ./ --ignore __test__",
     "commit": "npm run lint & npx git-cz",
     "lint": "eslint ./src/**/*.js",
     "release": "yarn --pure-lockfile && yarn clean && node scripts/release.js",
-    "version": "node scripts/markVersions.js && node scripts/genChangelog.js",
+    "versions": "node scripts/markVersions.js && node scripts/genChangelog.js",
     "changelog": "node scripts/genChangelog.js run",
     "test": "npm run build & jest --no-cache --detectOpenHandles",
     "ci": "npm run lint && npm run test -- --coverage"
@@ -43,6 +44,7 @@
     "node": ">=11.12.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.4.5",
     "js-cookie": "^2.2.0"
   },
   "devDependencies": {
@@ -68,10 +70,12 @@
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-plugin-istanbul": "^5.1.4",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-jest": "^24.6.0",
     "benchmark": "^2.1.4",
-    "conventional-changelog": "3.1.8",
     "chalk": "^2.4.2",
+    "conventional-changelog": "3.1.8",
+    "core-js": "3",
     "del": "^4.1.0",
     "eslint": "^5.16.0",
     "eslint-config-essentials": "^1.1.1",
@@ -79,9 +83,9 @@
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-prettier": "^3.0.1",
     "fs-extra": "^7.0.1",
+    "jest": "^24.7.1",
     "lerna": "^3.13.3",
     "lint-staged": "^8.1.5",
-    "jest": "^24.7.1",
     "pre-commit": "^1.2.2",
     "prettier": "^1.17.0",
     "rimraf": "^2.6.3",
