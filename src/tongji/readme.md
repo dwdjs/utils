@@ -4,23 +4,24 @@
 
 ## 用法
 
-配置初始化
+配置初始化 [测试示例](../../examples/tongji)
 
 ```js
-// utils/tongji
-import { Tongji, baidu, piwik } from '@dwdjs/tongji';
+// @/utils/tongji
+// import { Tongji, baidu, piwik } from '@dwdjs/utils/tongji';
 
 const tongji = new Tongji({
   category: 'msf',
 })
 
 tongji.use(piwik, {
-  // category: 'hsq',
+  category: 'hsq', // 支持覆盖全局配置
 });
 tongji.use(baidu, {
-  // category: 'msf',
+  category: 'iqg',
 });
 
+// window.tongji = tongji;
 export default tongji;
 ```
 
@@ -29,7 +30,18 @@ export default tongji;
 ```js
 import tongji from '@/utils/tongji';
 
-tongji.pv('detail?id=xxx');
+// 测试 pv 以及自定义事件上报
+tongji.custom({
+  spm: 'huabei',
+  channel: 'alipay',
+  userId: '123456',
+  openid: 'wxsurqhweiur',
+});
+tongji.pv('index?id=xxx');
+tongji.event('event', {
+  a: 1,
+  b: 2,
+});
 ```
 
 ## 设想
