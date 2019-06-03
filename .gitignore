@@ -15,16 +15,7 @@ alipay.js
 appShare.js
 bridgeready
 
-!/demo
-/*.js
-/*
-!/examples
+lib
+benchmark
+coverage
 tempCodeRunnerFile.js
-!/*.config.js
-!/src
-!/__tests__
-!/benchmark
-!/scripts
-!/scripts
-!/CHANGELOG.md
-!/.*

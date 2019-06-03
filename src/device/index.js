@@ -1,5 +1,5 @@
 // UA 检测
-import { debug } from './debug';
+import { debug } from '../debug';
 // https://stackoverflow.com/questions/19877924/what-is-the-list-of-possible-values-for-navigator-platform-as-of-today
 // https://code.i-harness.com/en/q/12f5024
 // navigator.platform 表示浏览器正在执行的平台
