@@ -18,7 +18,7 @@ bridgeready
 !/demo
 /*.js
 /*
-/examples
+!/examples
 tempCodeRunnerFile.js
 !/*.config.js
 !/src

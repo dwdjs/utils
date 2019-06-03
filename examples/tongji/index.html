@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>测试统计功能</title>
+</head>
+<body>
+  <div onclick="tongji.event('click', 'test')">
+    web 统计功能测试
+  </div>
+<script>
+!function(){
+  var d = document;
+  var s = d.querySelector('script'); // || d.querySelector('head');
+  function loadJS(scriptUrl) {
+    var s1 = document.createElement('script');
+    s1.async = true;
+    s1.defer = true;
+    s1.src = scriptUrl;
+    s.parentNode.insertBefore(s1, s);
+  }
+
+  // baidu
+  window._hmt = window._hmt || [];
+  _hmt.push(['_setAutoPageview', false]);
+  loadJS('https://hm.baidu.com/hm.js?498ed47e9a8bacaea9f8ec61836110b7');
+
+  // pwiki
+  window._paq = window._paq || [];
+  _paq.push(["setCookieDomain", "*"]);
+  // _paq.push(["setCookieDomain", "*.haoshiqi.net"]);
+  _paq.push(['enableLinkTracking']);
+  _paq.push(['setTrackerUrl', 'https://tongji.doweidu.com/piwik.php']);
+  _paq.push(['setSiteId', '2']);
+  loadJS('https://img1.haoshiqi.net/piwik.js');
+
+  // cnzz
+  // window._czc = window._czc || [];
+  // _czc.push(["_setAutoPageview", false]);
+  // loadJS('https://s13.cnzz.com/z_stat.php?id=1263211505');
+}();
+</script>
+<script type="module">
+// import { Tongji, baidu, piwik } from '@dwdjs/tongji';
+import { Tongji, baidu, piwik } from '../../src/tongji/index.js';
+
+const tongji = new Tongji({
+  category: 'msf',
+})
+
+tongji.use(piwik, {
+  category: 'hsq',
+});
+tongji.use(baidu, {
+  category: 'iqg',
+});
+
+window.tongji = tongji;
+// export default tongji;
+
+// 测试 pv 以及自定义事件上报
+tongji.custom({
+  spm: 'huabei',
+  channel: 'alipay',
+  userId: '123456',
+  openid: 'wxsurqhweiur',
+});
+tongji.pv('index?id=xxx');
+tongji.event('event', {
+  a: 1,
+  b: 2,
+});
+</script>
+</body>
+</html>
