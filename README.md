@@ -60,7 +60,7 @@
 - `import { debug } from '@dwdjs/utils/debug';`
 - `import device from '@dwdjs/utils/device';`
 - `import @dwdjs/utils/bridge/WebViewJavascriptBridge`
-- [ ] `import { Tongji, baidu, piwik } from @dwdjs/utils/tongji;`
+- [ ] `import { Tongji, baidu, piwik } from @dwdjs/utils/tongji;` [用法](./src/tongji/readme.md)
 - [ ] `import jsReport from  @dwdjs/utils/report;`
 
 ## Device 设备类型
