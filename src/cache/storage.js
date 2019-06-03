@@ -24,7 +24,7 @@
 
 // const cache = LRU(options)
 // const otherCache = LRU(50)
-import { isInteger } from '../index';
+import { isInteger } from '../utils/is';
 
 export const { localStorage, sessionStorage } = window;
 let storageData = {};

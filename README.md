@@ -1,54 +1,72 @@
 # 公共代码库
 
+**TIP**
+
+- 自 `0.2.0` 切换为编译输出到 lib，管理输出更干净
+- 删除 `"miniprogram": "./",` 即不再适配小程序引用
+
 常用方法收集
 
-- @dwdjs/utils
-  - forEachObj
-  - deepCopy
-  - find
+`import { xxx } from @dwdjs/utils;`
+
+- is
+  - hasOwn
+  - isUnDef
+  - isDef
+  - isNumber
+  - isInteger
+  - isString
+  - isArray
   - isObject
+  - isFunction (alias isFn)
+  - isEmptyObject
   - isPromise
+  - looseEqual (alias isEqual)
+- utils
+  - sleep
+  - random
+  - randomRange
   - uuid
-  - throttle
-  - debounce
+  - forEachValue
+  - cached
   - upperFirst
   - kebabCase
   - camelCase
   - merge
+  - throttle
+  - debounce
+  - getPlainNode
+- 按需条件加载 js 或 css
+  - loadJs
+  - loadCss
+- date
   - formatDate
   - formatCountDown
-- @dwdjs/utils/qs 处理 url query-string
+- qs 处理 url query-string
+  - copy
   - parse
   - stringify
   - compact
   - compactObject
-- @dwdjs/utils/cache
+- cache 持久化缓存相关
   - storage
   - cookie
-- @dwdjs/utils/tongji
-  - Tongji
-  - piwik
-  - baidu
-- @dwdjs/utils/report
-- @dwdjs/utils/bridge
-  - WebViewJavascriptBridge
-- @dwdjs/utils/rem
-- @dwdjs/utils/dload
-  - loadJs
-  - loadCss
-- @dwdjs/utils/device
-  - device
-- @dwdjs/utils/debug
-- @dwdjs/utils/emitter
+- 其他
+  - debug
   - Emitter
-- version 参见 semver
-  - gt
-  - gte
-  - lt
-  - lte
-  - eq
-  - neq
+  - Version (eq, gt, gte, lt, lte)
+  - [ ] forEachObj
+  - [ ] deepCopy
+  - [ ] find
 
+独立功能方法，需要使用 `@dwdjs/utils/lib/xxx` 路径来引入；
+
+- `import @dwdjs/utils/lib/rem;`
+- `import device from '@dwdjs/utils/lib/device';`
+- `import @dwdjs/utils/lib/bridge/WebViewJavascriptBridge`
+- [ ] `import { Tongji, baidu, piwik } from @dwdjs/utils/lib/tongji;` [用法](./src/tongji/readme.md)
+- [ ] `import jsReport from  @dwdjs/utils/lib/report;`
+- [ ] `import udesk from  @dwdjs/utils/lib/udesk;`
 
 ## Device 设备类型
 

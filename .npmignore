@@ -15,6 +15,5 @@ benchmark
 .*
 yarn.lock
 demo
-exmaples
+examples
 scripts
-CHANGELOG.md
