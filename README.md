@@ -50,9 +50,9 @@
 - 其他
   - Emitter
   - Version (eq, gt, gte, lt, lte)
-- [ ] forEachObj
-- [ ] deepCopy
-- [ ] find
+  - [ ] forEachObj
+  - [ ] deepCopy
+  - [ ] find
 
 独立文件方法
 
