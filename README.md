@@ -42,13 +42,11 @@
 - @dwdjs/utils/emitter
   - Emitter
 - version 参见 semver
+  - eq
   - gt
   - gte
   - lt
   - lte
-  - eq
-  - neq
-
 
 ## Device 设备类型
 
