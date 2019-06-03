@@ -32,7 +32,6 @@
   - debounce
   - getPlainNode
 - dload
-  - `import { loadJs, loadCss } from '@dwdjs/utils';`
   - loadJs
   - loadCss
 - date
@@ -57,7 +56,6 @@
 独立文件方法
 
 - `import @dwdjs/utils/rem;`
-- `import { debug } from '@dwdjs/utils/debug';`
 - `import device from '@dwdjs/utils/device';`
 - `import @dwdjs/utils/bridge/WebViewJavascriptBridge`
 - [ ] `import { Tongji, baidu, piwik } from @dwdjs/utils/tongji;` [用法](./src/tongji/readme.md)
