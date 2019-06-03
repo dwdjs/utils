@@ -7,3 +7,5 @@ export * from './utils/dload';
 export * from './utils/emitter';
 export * from './utils/version';
 export * from './qs';
+export * from './debug';
+export * from './cache';

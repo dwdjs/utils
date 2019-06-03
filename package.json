@@ -2,16 +2,21 @@
   "name": "@dwdjs/utils",
   "version": "0.1.12",
   "description": "utils",
-  "miniprogram": "./",
-  "main": "./index.js",
+  "main": "./lib/index.js",
+  "files": [
+    "./README.md",
+    "lib"
+  ],
   "publishConfig": {
     "registry": "http://maven.doweidu.com/repository/npm-hosted/"
   },
   "scripts": {
     "preinstall": "npm config set registry http://maven.doweidu.com/repository/npm-group/",
     "prepublish": "npm config set registry http://maven.doweidu.com/repository/npm-group/ && npm run build",
-    "dev": "./node_modules/.bin/babel src -s inline -d ./ --ignore __test__",
-    "build": "./node_modules/.bin/babel src -d ./ --ignore __test__",
+    "clean": "rimraf ./lib",
+    "dev": "./node_modules/.bin/babel src -s inline -d ./lib --ignore __test__",
+    "prebuild": "npm run clean && npm run lint",
+    "build": "./node_modules/.bin/babel src -d ./lib --ignore __test__",
     "commit": "npm run lint & npx git-cz",
     "lint": "eslint ./src/**/*.js",
     "release": "yarn --pure-lockfile && yarn clean && node scripts/release.js",
