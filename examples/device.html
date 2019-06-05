@@ -172,13 +172,16 @@
       </div>
     </div>
   </div>
-
-  <script type="text/javascript">
+<script type="module">
+import device from '../src/device/index.js';
+console.log(device);
+</script>
+  <!-- <script type="text/javascript">
     // Dummy value for demonstrating device.noConflict()
     window.device = "Hello World!";
-  </script>
+  </script> -->
 
-  <script src="../device.js"></script>
+  <!-- <script src="../device.js"></script>
 
   <script type="text/javascript">
     console.log("device.portrait() === %s", device.portrait());
@@ -201,6 +204,6 @@
 
     console.log ("device.noConflict() [previous]", window.device);
     console.log ("device.noConflict() [device.js]", devicejs.iphone());
-  </script>
+  </script> -->
 </body>
 </html>

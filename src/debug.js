@@ -1,4 +1,4 @@
-import { parse } from './qs';
+import { parse } from './qs/index.js';
 
 // 取参数以及debug调试
 // const url = 'https://m.iqianggou.com/?from=singlemessage&isappinstalled=0#bargain?id=646156&platform=5';
@@ -18,8 +18,8 @@ function getParams() {
     mock: params.d_mock,
     proxy: params.d_proxy,
     channel: params.d_channel,
-    aliapp: params.d_aliapp,
-    wxapp: params.d_wxapp,
+    // aliapp: params.d_aliapp,
+    // wxapp: params.d_wxapp,
   };
 }
 
