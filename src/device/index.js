@@ -18,6 +18,7 @@ console.log('ua:', ua);
 // https://github.com/matthewhudson/current-device
 // 获取系统信息 getSystemInfo
 // platform 客户端/系统平台/硬件平台
+// type 设备类型 mobile 手机 tablet 平板 desktop 桌面
 // os 操作系统 及 版本
 // host 宿主/客户端 及 版本
 // browser 浏览器 及 版本
@@ -26,6 +27,7 @@ const device = {
   device: '',
   platform, // 正在执行的平台
   system: '',
+  type: '',
   os: {},
   host: {},
   browser: {},

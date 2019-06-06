@@ -9,9 +9,23 @@ function getParams() {
   const { location } = window;
   const params = parse(location.href) || {};
 
+  // 调试参数使用 d_xxx 格式，非以下名单中的数据，警报提示修改
+  const debugParams = [
+    'd_debug', // 开启调试按钮/界面
+    'd_host', // 切换宿主 host
+    'd_console', // 打开 vConsole
+    'd_mock', // mock 数据
+    'd_proxy', // 启用代理 便捷更改 api 指向
+    'd_channel', // 变更 channel 数据
+  ];
+
+  const warns = Object.keys(params).filter(key => !debugParams.includes(key));
+  if (warns.length) {
+    console.warn(`${JSON.stringify(warns)} 参数使用有误`);
+  }
+
   return {
     params,
-    // 调试参数使用 d_xxx 格式
     debug: params.d_debug,
     host: params.d_host,
     console: params.d_console,

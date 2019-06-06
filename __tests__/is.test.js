@@ -2,6 +2,7 @@ import {
   isUnDef,
   isDef,
   isNumber,
+  isInteger,
   isString,
   isArray,
   isObject,
@@ -31,14 +32,37 @@ test('isNumber', () => {
   expect(isNumber(0)).toBe(true);
   expect(isNumber(0 / -1)).toBe(true);
   expect(isNumber(3)).toBe(true);
-  expect(isNumber(NaN)).toBe(true);
+  expect(isNumber(Number.MAX_VALUE)).toBe(true);
+  expect(isNumber(Number.MIN_VALUE)).toBe(true);
   expect(isNumber(Infinity)).toBe(true);
   expect(isNumber(-Infinity)).toBe(true);
+  expect(isNumber(NaN)).toBe(true);
   expect(isNumber(Object(42))).toBe(true);
+  expect(isInteger(Number('3'))).toBe(true);
+  expect(isInteger('3')).toBe(false);
   expect(isNumber()).toBe(false);
   expect(isNumber(temp)).toBe(false);
   expect(isNumber(null)).toBe(false);
   expect(isNumber(true)).toBe(false);
+});
+
+test('isInteger', () => {
+  let temp;
+  expect(isInteger(0)).toBe(true);
+  expect(isInteger(0 / -1)).toBe(true);
+  expect(isInteger(3)).toBe(true);
+  expect(isInteger(Number.MAX_VALUE)).toBe(false);
+  expect(isInteger(Number.MIN_VALUE)).toBe(false);
+  expect(isInteger(Infinity)).toBe(false);
+  expect(isInteger(-Infinity)).toBe(false);
+  expect(isInteger(NaN)).toBe(false);
+  expect(isInteger(Object(42))).toBe(false);
+  expect(isInteger(Number('3'))).toBe(true);
+  expect(isInteger('3')).toBe(false);
+  expect(isInteger()).toBe(false);
+  expect(isInteger(temp)).toBe(false);
+  expect(isInteger(null)).toBe(false);
+  expect(isInteger(true)).toBe(false);
 });
 
 test('isString', () => {
