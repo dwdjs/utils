@@ -6,7 +6,7 @@
  * @returns  { string }
  */
 
-import { compactObject } from './compactObject';
+import { compactObject } from './compactObject.js';
 // const toISO = Date.prototype.toISOString;
 
 const defaults = {

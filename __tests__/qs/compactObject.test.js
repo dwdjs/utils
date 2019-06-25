@@ -1,4 +1,4 @@
-import { compactObject } from '../../src/qs';
+import { compactObject } from '../../src';
 
 const test1 = {
   from: 'singlemessage',

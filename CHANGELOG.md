@@ -1,3 +1,11 @@
+# 0.2.0 (2019-06-03)
+
+
+
+# [0.1.13](https://gitlab.iqianggou.com/xmini/utils/compare/v0.2.0...v0.1.13) (2019-06-03)
+
+
+
 # [0.1.6](https://gitlab.iqianggou.com/xmini/utils/compare/v0.1.5...v0.1.6) (2019-05-28)
 
 ## other

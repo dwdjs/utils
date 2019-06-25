@@ -1,4 +1,4 @@
-import { stringify } from '../../src/qs';
+import { stringify } from '../../src';
 
 const result1 = 'from=singlemessage&isappinstalled=0&id=646156&platform=5';
 const test1 = {

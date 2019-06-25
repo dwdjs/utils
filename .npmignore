@@ -7,6 +7,7 @@ src
 .browserslistrc
 temp
 examples
+.DS_Store
 
 CHANGELOG.md
 coverage

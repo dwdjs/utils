@@ -94,7 +94,7 @@ var Bridge = {
       bridge.getNativeFnList({
         success(res) {
           const { data = [] } = res;
-          that.nativeFnList = data;
+          that._nativeFnList = data;
         },
       });
       // Object.assign(bridge, window.webAttributes);
@@ -115,7 +115,7 @@ var Bridge = {
     }
   },
   canIUse(fnName) {
-    return this.nativeFnList.indexOf[fnName] > -1;
+    return this._nativeFnList.indexOf[fnName] > -1;
   },
   scanQRCode() {
     const bridge = window.WebViewJavascriptBridge;

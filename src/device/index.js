@@ -1,5 +1,5 @@
 // UA 检测
-import { debug } from '../debug';
+import { debug } from '../debug.js';
 // https://stackoverflow.com/questions/19877924/what-is-the-list-of-possible-values-for-navigator-platform-as-of-today
 // https://code.i-harness.com/en/q/12f5024
 // navigator.platform 表示浏览器正在执行的平台
@@ -18,6 +18,7 @@ console.log('ua:', ua);
 // https://github.com/matthewhudson/current-device
 // 获取系统信息 getSystemInfo
 // platform 客户端/系统平台/硬件平台
+// type 设备类型 mobile 手机 tablet 平板 desktop 桌面
 // os 操作系统 及 版本
 // host 宿主/客户端 及 版本
 // browser 浏览器 及 版本
@@ -26,6 +27,7 @@ const device = {
   device: '',
   platform, // 正在执行的平台
   system: '',
+  type: '',
   os: {},
   host: {},
   browser: {},
@@ -195,6 +197,8 @@ let hsq = ua.match(/(DWD_HSQ)\/([\d.]+)/);
 let iqg = ua.match(/(DWD_IQG)\/([\d.]+)/);
 const dingtalk = ua.match(/(AliApp\(DingTalk)\/([\d.]+)/);
 const taobao = ua.match(/(AliApp\(TB)\/([\d.]+)/);
+const aliapp = alipay && ua.match(/MiniProgram/);
+const wxapp = wechat && ua.match(/miniProgram/);
 const qq = ua.match(/(QQ)\/([\d.]+)/);
 const iqgsh = ua.match(/(DWD_IQGSH)\/([\d.]+)/);
 const hybrid = !!('dwd' in window);
@@ -226,12 +230,18 @@ if (qq) {
   host.version = qq[1];
 }
 if (wechat) {
+  if (wxapp) {
+    host.wxapp = true;
+  }
   host.wechat = true;
-  host.version = wechat[1];
+  host.version = wechat[2];
 }
 if (alipay) {
+  if (aliapp) {
+    host.aliapp = true;
+  }
   host.alipay = true;
-  host.version = alipay[1];
+  host.version = alipay[2];
 }
 if (dingtalk) {
   host.dingtalk = true;
@@ -294,7 +304,9 @@ os.name = android ? 'android' :
 
 // 宿主/软件环境
 // prettier-ignore
-host.name = alipay ? 'alipay' :
+host.name = aliapp ? 'aliapp' :
+  wxapp ? 'wxapp' :
+  alipay ? 'alipay' :
   wechat ? 'wechat' :
   hybrid ? 'hybrid' :
   msf ? 'msf' :
@@ -434,8 +446,6 @@ Object.assign(device, {
   os,
   host,
   browser,
-  wxapp: !!debug.wxapp,
-  aliapp: !!debug.aliapp,
   terminal,
 
   // 最常用的，提高一层
@@ -450,6 +460,8 @@ Object.assign(device, {
   msf: !!msf,
   qq: !!qq,
   dingtalk: !!dingtalk,
+  wxapp: !!wxapp,
+  aliapp: !!aliapp,
 });
 
 device.getSystemInfo = () => {
@@ -480,6 +492,9 @@ device.getSystemInfo = () => {
 
 console.log('device: ', device);
 export default device;
+
+// 浏览器的JavaScript 模块化：解决 Failed to load module script 的问题
+// http://zhouchen.tech/2018/12/20/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84JavaScript-%E6%A8%A1%E5%9D%97%E5%8C%96%EF%BC%9A%E8%A7%A3%E5%86%B3-Failed-to-load-module-script-%E7%9A%84%E9%97%AE%E9%A2%98/
 
 /* eslint max-len: 0 */
 // Mac navigator.platform = "MacIntel"
