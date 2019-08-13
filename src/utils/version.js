@@ -1,5 +1,5 @@
 // 轻量级语义版本比较
-function compare(v1, v2, complete) {
+export function compare(v1, v2, complete) {
   v1 = String(v1);
   v2 = String(v2);
   if (v1 === v2) return 0;
