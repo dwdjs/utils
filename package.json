@@ -8,7 +8,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "http://maven.doweidu.com/repository/npm-hosted/"
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "prepublish": "npm config set registry https://registry.npmjs.org/ && npm run build",
