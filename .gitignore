@@ -72,3 +72,4 @@ lib
 benchmark
 tempCodeRunnerFile.js
 yarn.lock
+.sonarlint
