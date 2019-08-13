@@ -20,7 +20,7 @@ export const piwik = {
     userId && _paq.push(['setUserId', userId]);
 
     // 当前url的上个url，因为默认的referrer只能取hash以外的值
-    ref && _paq.push(['setReferrerUrl', decodeURIComponent(ref || '')]);
+    ref && _paq.push(['setReferrerUrl', decodeURIComponent(ref)]);
   },
   // 示例：trackPageView('/virtual/login']);
   pv(page) {
