@@ -2,6 +2,8 @@ import { Version } from '../src';
 
 const v = '3.8.5';
 const version = new Version(v);
+const v2 = new Version('3.0.0');
+const v3 = new Version('3.0');
 
 test('eq', () => {
   expect(version.eq(v)).toBe(true);
@@ -18,8 +20,13 @@ test('gt', () => {
 test('gte', () => {
   expect(version.gte('3.7')).toBe(true);
   expect(version.gte('3.7.6')).toBe(true);
+  expect(version.gte('3.8')).toBe(true);
   expect(version.gte(v)).toBe(true);
   expect(version.gte('3.9')).toBe(false);
+  expect(v2.gte('3.0.0')).toBe(true);
+  expect(v2.gte('3.0')).toBe(true);
+  expect(v3.gte('3.0.0')).toBe(true);
+  expect(v3.gte('3.0')).toBe(true);
 });
 
 test('lt', () => {

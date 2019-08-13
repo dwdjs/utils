@@ -18,7 +18,7 @@ function decode(input) {
   return decodeURIComponent(input.replace(/\+/g, ' '));
 }
 
-export function parse(url = '', key) {
+export function parse(url = '', key = '') {
   if (!url) return;
 
   const params = {};
