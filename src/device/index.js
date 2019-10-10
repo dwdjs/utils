@@ -5,7 +5,7 @@ import { debug } from '../debug.js';
 // navigator.platform 表示浏览器正在执行的平台
 const {
   // appCodeName, // 浏览器代号
-  appName, // 浏览器名称/当前运行的客户端(网页端要改掉，不然没什么意义)
+  // appName, // 浏览器名称/当前运行的客户端(网页端要改掉，不然没什么意义)
   appVersion, // 当前客户端版本
   // cookieEnabled, // 启用Cookies
   platform = '', // 硬件平台
@@ -479,7 +479,7 @@ device.getSystemInfo = () => {
     terminal,
     system,
     platform,
-    appName,
+    // appName,
     appVersion,
     os: os.name,
     osVersion: os.version,
