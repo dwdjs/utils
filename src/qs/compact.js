@@ -1,6 +1,6 @@
 /**
- * Creates an array with all falsey values removed. The values `false`, `null`,
- * `0`, `""`, `undefined`, and `NaN` are falsey.
+ * Creates an array with all false values removed. The values `false`, `null`,
+ * `0`, `""`, `undefined`, and `NaN` are false.
  *
  * @since 0.1.0
  * @category Array

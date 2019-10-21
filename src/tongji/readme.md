@@ -8,7 +8,7 @@
 
 ```js
 // @/utils/tongji
-// import { Tongji, baidu, piwik } from '@dwdjs/utils/tongji';
+import { Tongji, baidu, piwik } from '@dwdjs/utils/tongji';
 
 const tongji = new Tongji({
   category: 'msf',

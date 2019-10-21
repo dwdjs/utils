@@ -5,7 +5,7 @@ import { debug } from '../debug.js';
 // navigator.platform 表示浏览器正在执行的平台
 const {
   // appCodeName, // 浏览器代号
-  appName, // 浏览器名称/当前运行的客户端(网页端要改掉，不然没什么意义)
+  // appName, // 浏览器名称/当前运行的客户端(网页端要改掉，不然没什么意义)
   appVersion, // 当前客户端版本
   // cookieEnabled, // 启用Cookies
   platform = '', // 硬件平台
@@ -195,12 +195,13 @@ let wechat = ua.match(/(MicroMessenger)\/([\d.]+)/);
 let msf = ua.match(/(DWD_MSF)\/([\d.]+)/);
 let hsq = ua.match(/(DWD_HSQ)\/([\d.]+)/);
 let iqg = ua.match(/(DWD_IQG)\/([\d.]+)/);
+let iqgsh = ua.match(/(DWD_IQGSH)\/([\d.]+)/);
+let gat = ua.match(/(GatApp)\/([\d.]+)/);
 const dingtalk = ua.match(/(AliApp\(DingTalk)\/([\d.]+)/);
 const taobao = ua.match(/(AliApp\(TB)\/([\d.]+)/);
 const aliapp = alipay && ua.match(/MiniProgram/);
 const wxapp = wechat && ua.match(/miniProgram/);
 const qq = ua.match(/(QQ)\/([\d.]+)/);
-const iqgsh = ua.match(/(DWD_IQGSH)\/([\d.]+)/);
 const hybrid = !!('dwd' in window);
 
 if (debug.host) {
@@ -219,6 +220,12 @@ if (debug.host) {
       break;
     case 'iqg':
       iqg = {};
+      break;
+    case 'iqgsh':
+      iqgsh = {};
+      break;
+    case 'gat':
+      gat = {};
       break;
     default:
     // do nothing
@@ -265,7 +272,11 @@ if (iqg) {
 }
 if (iqgsh) {
   host.iqgsh = true;
-  host.version = iqgsh[1];
+  host.version = iqgsh[2];
+}
+if (gat) {
+  host.gat = true;
+  host.version = gat[2];
 }
 
 // iOS 8+ changed UA ?
@@ -458,6 +469,8 @@ Object.assign(device, {
   iqg: !!iqg,
   hsq: !!hsq,
   msf: !!msf,
+  iqgsh: !!iqgsh,
+  gat: !!gat,
   qq: !!qq,
   dingtalk: !!dingtalk,
   wxapp: !!wxapp,
@@ -479,7 +492,7 @@ device.getSystemInfo = () => {
     terminal,
     system,
     platform,
-    appName,
+    // appName,
     appVersion,
     os: os.name,
     osVersion: os.version,

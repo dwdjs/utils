@@ -30,7 +30,9 @@ export function stringify(params, options = {}) {
   params = compactObject(params, invalid);
   for (const key in params) {
     if ({}.hasOwnProperty.call(params, key)) {
-      result.push(`${key}=${encodeURIComponent(params[key])}`);
+      result.push(
+        `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+      );
     }
   }
   return result.join(delimiter);
