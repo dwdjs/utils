@@ -72,4 +72,6 @@ lib
 benchmark
 tempCodeRunnerFile.js
 yarn.lock
-.scannerwork/
+
+.sonarlint
+.scannerwork

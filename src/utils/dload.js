@@ -5,11 +5,10 @@ const error = url => {
 };
 const doc = document;
 const domHead = doc.querySelector('head');
-const domBody = doc.querySelector('body') || domHead;
 // const s = doc.getElementsByTagName('script')[0];
 
 export function loadJs(scriptUrl, obj = {}) {
-  const script = document.createElement('script');
+  const script = doc.createElement('script');
   if (typeof obj === 'boolean') {
     // 默认是同步加载，同步模式又称阻塞模式
     // 同步加载流程是瀑布模型，异步加载流程是并发模型。
@@ -30,15 +29,11 @@ export function loadJs(scriptUrl, obj = {}) {
   };
   // script.crossOrigin = 'anonymous';
   // s.parentNode.insertBefore(s1, s);
-  if (obj.first) {
-    domHead.appendChild(script);
-  } else {
-    domBody.appendChild(script);
-  }
+  domHead.appendChild(script);
 }
 
 export function loadCss(cssUrl) {
-  const style = document.createElement('style');
+  const style = doc.createElement('style');
   style.rel = 'stylesheet';
   style.src = cssUrl;
   domHead.appendChild(style);

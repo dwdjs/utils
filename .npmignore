@@ -18,3 +18,4 @@ yarn.lock
 demo
 examples
 scripts
+.sonarlint
