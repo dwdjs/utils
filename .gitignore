@@ -59,3 +59,19 @@ typings/
 
 # next.js build output
 .next
+
+temp
+
+# bridge
+wechat.js
+alipay.js
+appShare.js
+bridgeready
+
+lib
+benchmark
+tempCodeRunnerFile.js
+yarn.lock
+
+.sonarlint
+.scannerwork
