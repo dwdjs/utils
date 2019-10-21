@@ -1,6 +1,6 @@
 {
   "name": "@dwdjs/utils",
-  "version": "0.2.4",
+  "version": "1.0.0",
   "description": "utils",
   "main": "./lib/index.js",
   "files": [
