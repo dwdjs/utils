@@ -17,6 +17,8 @@ function getParams() {
     'd_mock', // mock 数据
     'd_proxy', // 启用代理 便捷更改 api 指向
     'd_channel', // 变更 channel 数据
+    'd_aliapp',
+    'd_wxapp',
   ];
 
   const warns = Object.keys(params).filter(key => !debugParams.includes(key));
@@ -32,8 +34,8 @@ function getParams() {
     mock: params.d_mock,
     proxy: params.d_proxy,
     channel: params.d_channel,
-    // aliapp: params.d_aliapp,
-    // wxapp: params.d_wxapp,
+    aliapp: params.d_aliapp,
+    wxapp: params.d_wxapp,
   };
 }
 
