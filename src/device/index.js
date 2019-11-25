@@ -199,8 +199,8 @@ let iqgsh = ua.match(/(DWD_IQGSH)\/([\d.]+)/);
 let gat = ua.match(/(GatApp)\/([\d.]+)/);
 const dingtalk = ua.match(/(AliApp\(DingTalk)\/([\d.]+)/);
 const taobao = ua.match(/(AliApp\(TB)\/([\d.]+)/);
-const aliapp = alipay && ua.match(/MiniProgram/);
-const wxapp = wechat && ua.match(/miniProgram/);
+const aliapp = debug.aliapp || (alipay && ua.match(/MiniProgram/));
+const wxapp = debug.wxapp || (wechat && ua.match(/miniProgram/));
 const qq = ua.match(/(QQ)\/([\d.]+)/);
 const hybrid = !!('dwd' in window);
 
