@@ -8,7 +8,7 @@
     let { clientWidth } = docEl;
     if (!clientWidth) return;
     if (clientWidth > 780) clientWidth = 780;
-    if (clientWidth < 310) clientWidth = 310;
+    if (clientWidth < 280) clientWidth = 280;
     // 以 iphone6/7 为基准
     docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
   };
