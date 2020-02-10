@@ -197,6 +197,7 @@ let hsq = ua.match(/(DWD_HSQ)\/([\d.]+)/);
 let iqg = ua.match(/(DWD_IQG)\/([\d.]+)/);
 let iqgsh = ua.match(/(DWD_IQGSH)\/([\d.]+)/);
 let gat = ua.match(/(GatApp)\/([\d.]+)/);
+let boc = ua.match(/(bocapp)\/([\d.]+)/i);
 const dingtalk = ua.match(/(AliApp\(DingTalk)\/([\d.]+)/);
 const taobao = ua.match(/(AliApp\(TB)\/([\d.]+)/);
 const aliapp = debug.aliapp || (alipay && ua.match(/MiniProgram/));
@@ -226,6 +227,9 @@ if (debug.host) {
       break;
     case 'gat':
       gat = {};
+      break;
+    case 'boc':
+      boc = {};
       break;
     default:
     // do nothing
@@ -278,6 +282,10 @@ if (gat) {
   host.gat = true;
   host.version = gat[2];
 }
+if (boc) {
+  host.boc = true;
+  host.version = boc[2];
+}
 
 // iOS 8+ changed UA ?
 if (os.ios && os.version && ua.indexOf('Version/') >= 0) {
@@ -324,6 +332,7 @@ host.name = aliapp ? 'aliapp' :
   hsq ? 'hsq' :
   iqg ? 'iqg' :
   iqgsh ? 'iqgsh' :
+  boc ? 'boc' :
   qq ? 'qq' :
   chrome ? 'chrome' :
   safari ? 'safari' :
@@ -471,6 +480,7 @@ Object.assign(device, {
   msf: !!msf,
   iqgsh: !!iqgsh,
   gat: !!gat,
+  boc: !!boc,
   qq: !!qq,
   dingtalk: !!dingtalk,
   wxapp: !!wxapp,
