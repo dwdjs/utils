@@ -197,7 +197,7 @@ let hsq = ua.match(/(DWD_HSQ)\/([\d.]+)/);
 let iqg = ua.match(/(DWD_IQG)\/([\d.]+)/);
 let iqgsh = ua.match(/(DWD_IQGSH)\/([\d.]+)/);
 let gat = ua.match(/(GatApp)\/([\d.]+)/);
-let boc = ua.match(/(bocapp)\/([\d.]+)/i);
+let boc = ua.match(/bocapp\(([\d\.]+)\)/i);
 const dingtalk = ua.match(/(AliApp\(DingTalk)\/([\d.]+)/);
 const taobao = ua.match(/(AliApp\(TB)\/([\d.]+)/);
 const aliapp = debug.aliapp || (alipay && ua.match(/MiniProgram/));
@@ -284,7 +284,7 @@ if (gat) {
 }
 if (boc) {
   host.boc = true;
-  host.version = boc[2];
+  host.version = boc[1];
 }
 
 // iOS 8+ changed UA ?
