@@ -5,5 +5,12 @@
  * @returns { Object } 新对象
  */
 export function copy(data = null) {
-  return JSON.parse(JSON.stringify(data));
+  try {
+    return JSON.parse(JSON.stringify(data));
+  } catch (err) {
+    return data;
+  }
 }
+
+export const clone = copy;
+export const deepCopy = copy;
