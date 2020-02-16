@@ -44,6 +44,7 @@
   - formatCountDown
 - qs 处理 url query-string
   - copy
+    - alias: `deepCopy` `clone`
   - parse
   - stringify
   - compact
@@ -56,7 +57,6 @@
   - Emitter
   - Version (eq, gt, gte, lt, lte)
   - [ ] forEachObj
-  - [ ] deepCopy
   - [ ] find
 
 独立功能方法，需要使用 `@dwdjs/utils/lib/xxx` 路径来引入；
