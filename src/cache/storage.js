@@ -26,7 +26,12 @@
 // const otherCache = LRU(50)
 import { isInteger } from '../utils/is';
 
-export const { localStorage, sessionStorage } = window;
+let win = {};
+if (typeof window !== 'undefined') {
+  win = window;
+}
+
+export const { localStorage, sessionStorage } = win;
 let storageData = {};
 const store = {
   local: localStorage,
@@ -59,6 +64,7 @@ const store = {
  */
 export class Storage {
   constructor(prekey = 'store', type = 'local') {
+    if (typeof window === 'undefined') return {};
     // 删除自加属性，避免因顺序产生的 `prekey` 意外
     // 为处理老版本问题，此方法应设定一个定期清除的机制
     // 可以内置一个数据来管理此方法生效，版本、何时清除老数据等问题

@@ -3,11 +3,19 @@ const noop = () => {};
 const error = url => {
   console.log(`load script error ${url}`);
 };
-const doc = document;
-const domHead = doc.querySelector('head');
+
+let doc;
+let domHead;
+
+if (typeof document !== 'undefined') {
+  doc = document;
+  domHead = doc.querySelector('head');
+}
+
 // const s = doc.getElementsByTagName('script')[0];
 
 export function loadJs(scriptUrl, obj = {}) {
+  if (!doc) return;
   const script = doc.createElement('script');
   if (typeof obj === 'boolean') {
     // 默认是同步加载，同步模式又称阻塞模式
@@ -33,6 +41,7 @@ export function loadJs(scriptUrl, obj = {}) {
 }
 
 export function loadCss(cssUrl) {
+  if (!doc) return;
   const style = doc.createElement('style');
   style.rel = 'stylesheet';
   style.src = cssUrl;
