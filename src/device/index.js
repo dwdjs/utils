@@ -470,6 +470,7 @@ Object.assign(device, {
   hsq: !!hsq,
   msf: !!msf,
   iqgsh: !!iqgsh,
+  dwd: !!(hsq || iqg || msf || iqgsh),
   gat: !!gat,
   qq: !!qq,
   dingtalk: !!dingtalk,
